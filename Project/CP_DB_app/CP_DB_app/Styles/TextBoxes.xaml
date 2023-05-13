@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--Input fields-->
+    <Style x:Key="SearchTextBox" TargetType="TextBox">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
+        <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CaretBrush" Value="{StaticResource DarkGrayBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Input fields-->
+    <Style x:Key="LoginTextBox" TargetType="TextBox">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Foreground" Value="{StaticResource DeepGreenBrush}"/>
+        <Setter Property="Background" Value="{StaticResource SeafoamBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CaretBrush" Value="{StaticResource DeepGreenBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="PasswordBox">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="MaxLength" Value="24"/>
+        <Setter Property="Foreground" Value="{StaticResource DeepGreenBrush}"></Setter>
+        <Setter Property="Background" Value="{StaticResource SeafoamBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CaretBrush" Value="{StaticResource DeepGreenBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UnderlinedTextBox" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource DeepGreenBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="10 5 10 5"/>
+        <Setter Property="CaretBrush" Value="{StaticResource DeepGreenBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border BorderBrush="{StaticResource BrightGreenBrush}" BorderThickness="0 0 0 2">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

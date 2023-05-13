@@ -1,0 +1,73 @@
+﻿using CP_DB_app.Data;
+using CP_DB_app.UserControls;
+using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace CP_DB_app.ExtraWindows
+{
+    /// <summary>
+    /// Логика взаимодействия для ShowSongsByArtist.xaml
+    /// </summary>
+    public partial class ShowSongsByArtist : Window
+    {
+        OracleConnection con = DbConnectionUtils.GetDBConnection();
+        string artist;
+        Int16 artistId;
+
+        public ShowSongsByArtist()
+        {
+            InitializeComponent();
+        }
+
+        public ShowSongsByArtist(Int16 artistId, string artist)
+        {
+            InitializeComponent();
+            this.artistId = artistId;
+            artistName.Text = artist;
+        }
+
+        public void loadSongs()
+        {
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "CP_ADMIN.GET_SONG_BY_ARTIST";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("I_ARTIST_ID", OracleDbType.Int32, 10).Value = artistId;
+            cmd.Parameters["I_ARTIST_ID"].Direction = ParameterDirection.Input;
+            cmd.Parameters.Add("O_SONGS_CURS", OracleDbType.RefCursor);
+            cmd.Parameters["O_SONGS_CURS"].Direction = ParameterDirection.Output;
+            OracleDataReader reader = cmd.ExecuteReader();
+            songList.Children.Clear();
+            while (reader.Read())
+            {
+                SongUC song = new SongUC(reader.GetInt16(0), reader.GetString(1));
+                songList.Children.Add(song);
+            }
+            con.Close();
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Application.Current.Windows[0].Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            loadSongs();
+        }
+    }
+}

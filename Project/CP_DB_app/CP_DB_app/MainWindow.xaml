@@ -1,0 +1,49 @@
+﻿<Window x:Class="CP_DB_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CP_DB_app"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent"
+        Title="MainWindow" Height="600" Width="1000">
+    <Border Background="White" CornerRadius="40">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+             
+            <Grid Grid.Row="0" Panel.ZIndex="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
+                    <TextBlock Text="Music" Style="{StaticResource Header}"/>
+                </Viewbox>
+
+                <StackPanel Margin ="30 0"  Grid.Column="1" Orientation="Horizontal">
+                    <Button x:Name="WindowMinimizeButton" HorizontalAlignment="Right" 
+                            Style="{StaticResource windowButton}" Click="WindowMinimizeButton_Click">
+                        <Icon:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource windowIcon}"
+                                           Foreground="{StaticResource YellowBrush}"/>
+                    </Button>
+
+                    <Button x:Name="WindowCloseButton" HorizontalAlignment="Right"
+                            Style="{StaticResource windowButton}" Click="WindowCloseButton_Click">
+                        <Icon:PackIconMaterial Kind="WindowClose" Style="{StaticResource windowIcon}" 
+                                           Foreground="{StaticResource RedCrayolaBrush}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Frame Grid.Row="1"
+                x:Name="MainFrame" Source="./Authorization/Login.xaml" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Border>
+</Window>

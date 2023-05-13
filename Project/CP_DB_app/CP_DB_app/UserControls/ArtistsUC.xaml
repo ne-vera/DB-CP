@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="CP_DB_app.UserControls.ArtistsUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CP_DB_app.UserControls"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             Name="ArtistUC">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10" CornerRadius="10" Padding="30 15"
+                Background="{StaticResource OffWhiteBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Image x:Name="artistPhoto" MaxHeight="50" MaxWidth="50"
+                       Source="pack://application:,,,/Images/portrait.png"/>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20 0">
+                    <TextBlock Text="ID" FontSize="8"/>
+                    <TextBlock x:Name="blockArtistId" Text="ID"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="20 0">
+                    <TextBlock Text="Artist name" FontSize="8"/>
+                    <TextBlock x:Name="blockArtistName" Text="ARTIST'S NAME"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="3">
+                    <Button Name="showSongs" Content="Songs" IsEnabled="True" 
+                            Visibility="Visible"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Style="{StaticResource searchButton}" Margin="0 0 0 5" Click="showSongs_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="followButton" IsEnabled="True" 
+                                Visibility="Visible"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Style="{StaticResource windowButton}"
+                                Click="followButton_Click">
+                            <Icon:PackIconMaterial Name="followIcon" Kind="AccountPlus"/>
+                        </Button>
+                        <TextBlock x:Name="followersCount" Text="" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="adminButtons" Grid.Column="4" Margin="20 0 0 0" Visibility="Collapsed">
+                    <Button Name="editArtist" Content="Update" IsEnabled="True" 
+                            Visibility="Visible" Margin="0 0 0 5"
+                            Style="{StaticResource searchButton}"
+                            Click="editArtist_Click"/>
+                    <Button Name="deleteArtist" Content="Delete" IsEnabled="True" 
+                            Visibility="Visible" Margin="0" 
+                            Style="{StaticResource searchButton}"
+                            Click="deleteArtist_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

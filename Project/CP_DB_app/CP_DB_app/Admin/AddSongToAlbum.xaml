@@ -1,0 +1,60 @@
+﻿<Window x:Class="CP_DB_app.Admin.AddSongToAlbum"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CP_DB_app.Admin"
+        mc:Ignorable="d"
+        Title="AddSongToAlbum" Height="400" Width="400"
+        ResizeMode="NoResize" Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Border CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="{StaticResource DarkGreen}" Offset="0"/>
+                    <GradientStop Color="{StaticResource BrightGreen}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel VerticalAlignment="Center">
+                <Border Background="{StaticResource OffWhiteBrush}"
+                                Padding="20 40 20 10" 
+                                Margin="50 15 50 0"
+                                CornerRadius="10"
+                                Width="250">
+                    <StackPanel>
+                        <TextBlock Foreground="{StaticResource DarkGreenBrush}"
+                                   Text="Add song to"
+                                   Margin="0 0 0 20"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Album Name" Margin="0 0 0 5"
+                                   HorizontalAlignment="Center"/>
+                        <ComboBox x:Name="albumNameCombo" Margin="0" BorderThickness="0 0 0 2" 
+                                   HorizontalAlignment="Center" HorizontalContentAlignment="Left" 
+                                  VerticalContentAlignment="Center" VerticalAlignment="Top" 
+                                  Width="200" Height="30" />
+                        
+                        <Button x:Name="addBtn" Content="Add"
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Style="{StaticResource searchButton}"
+                                Click="addBtn_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <Button x:Name="closeBtn"
+                            Style="{StaticResource trassissionButton}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            Margin="10"
+                        Click="closeBtn_Click">
+                    <TextBlock FontSize="16" Style="{StaticResource textButton}" Text="Go back" Height="20" Margin="0,2,0,0" VerticalAlignment="Top"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

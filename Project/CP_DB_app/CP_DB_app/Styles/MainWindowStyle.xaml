@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="Header" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BrightGreenBrush}"/>
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+</ResourceDictionary>
